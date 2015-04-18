@@ -57,7 +57,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
-<p>In this section we unzip the input data file and load it in a dataset.<br />We convert the column date from character to date (POSIXct).<br />And we show the data structure.</p>
+<p>In this section, input data file is uncompressed and loaded in a dataset.<br />Column date is converted from character to date.</p>
 <pre class="r"><code>unzip(&quot;activity.zip&quot;)
 activity &lt;- read.csv(&quot;activity.csv&quot;)
 activity &lt;- mutate(activity, date=ymd(activity$date))
@@ -124,7 +124,7 @@ medsbd2 &lt;- as.integer(round(median(stepsday2$steps)))</code></pre>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
-<p>First, we add a variable (daytype) to the dataset to indicate weekdays and weekends.<br />Then we calculate the mean number of steps taken by week period (weekdays or weekends) and by interval.<br />Then we make a time series plot of the 5-minute interval and the average number of steps taken.</p>
+<p>First, we add a variable (daytype) to the dataset to indicate weekdays and weekends.<br />Then we calculate the mean number of steps taken by week period (weekdays or weekends) and by interval.<br />Finally we make a time series plot of the 5-minute interval and the average number of steps taken.</p>
 <pre class="r"><code>activity2 &lt;- mutate(activity2, daytype=factor(ifelse(wday(date) %in% c(1,7), &quot;weekend&quot;, &quot;weekday&quot;)))
 
 stepsinterval2 &lt;- activity2 %&gt;%

@@ -3,9 +3,8 @@
 
 
 ## Loading and preprocessing the data
-In this section we unzip the input data file and load it in a dataset.  
-We convert the column date from character to date (POSIXct).  
-And we show the data structure.
+In this section, input data file is uncompressed and loaded in a dataset.  
+Column date is converted from character to date.
 
 ```r
 unzip("activity.zip")
@@ -113,7 +112,7 @@ There is no difference of the total number of steps distribution nor in the mean
 ## Are there differences in activity patterns between weekdays and weekends?
 First, we add a variable (daytype) to the dataset to indicate weekdays and weekends.   
 Then we calculate the mean number of steps taken by week period (weekdays or weekends) and by interval.  
-Then we make a time series plot of the 5-minute interval and the average number of steps taken.
+Finally we make a time series plot of the 5-minute interval and the average number of steps taken.
 
 ```r
 activity2 <- mutate(activity2, daytype=factor(ifelse(wday(date) %in% c(1,7), "weekend", "weekday")))
